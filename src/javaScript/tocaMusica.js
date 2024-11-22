@@ -3,7 +3,7 @@ const audio = document.getElementById('audioPlayer');
 const playButton = document.getElementById('playButton');
 
 // Define o tempo inicial e tenta tocar o áudio
-function playAudio() {
+function playMusic() {
     audio.currentTime = startTime;
     audio.play().then(() => {
         console.log("Áudio tocando...");
