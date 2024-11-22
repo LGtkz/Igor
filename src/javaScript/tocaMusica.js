@@ -1,24 +1,25 @@
-const startTime = 157; // Tempo inicial em segundos
-const audio = document.getElementById('audioPlayer');
-const playButton = document.getElementById('playButton');
+const startTime = 156; // Tempo inicial da música (em segundos)
+const delay = 3000; // Tempo de espera antes de tocar (em milissegundos, 5 segundos)
 
-// Define o tempo inicial e tenta tocar o áudio
-function playMusic() {
-    audio.currentTime = startTime;
-    audio.play().then(() => {
-        console.log("Áudio tocando...");
-        playButton.style.display = "none"; // Esconde o botão após iniciar
-    }).catch(error => {
-        console.log("Autoplay bloqueado. Clique no botão para iniciar.");
-    });
-}
-
-// Tenta tocar automaticamente ao carregar a página
 window.onload = function () {
-    playAudio(); // Chama a função ao carregar
-};
+    const audio = document.getElementById('audioPlayer');
 
-// Permite o usuário tocar manualmente
-playButton.addEventListener('click', () => {
-    playAudio();
-});
+    // Exibe o alerta para pedir permissão ao usuário
+    const userConsent = confirm("Deseja escutar a música selecionada para este momento?");
+
+    if (userConsent) {
+        // Define o tempo inicial
+        audio.currentTime = startTime;
+
+        // Aguarda o tempo especificado antes de tocar a música
+        setTimeout(() => {
+            audio.play().then(() => {
+                console.log("Música tocando após o delay.");
+            }).catch(error => {
+                console.log("Erro ao tocar a música:", error);
+            });
+        }, delay);
+    } else {
+        console.log("Usuário optou por não iniciar a música.");
+    }
+};
