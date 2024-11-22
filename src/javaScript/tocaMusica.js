@@ -1,16 +1,24 @@
-const startTime = 157; // Altere este valor para o tempo desejado
+const startTime = 157; // Tempo inicial em segundos
+const audio = document.getElementById('audioPlayer');
+const playButton = document.getElementById('playButton');
 
+// Define o tempo inicial e tenta tocar o áudio
 function playAudio() {
-    const audio = document.getElementById('audioPlayer');
-    audio.currentTime = startTime; // Define o tempo inicial
-    audio.play(); // Toca o áudio
+    audio.currentTime = startTime;
+    audio.play().then(() => {
+        console.log("Áudio tocando...");
+        playButton.style.display = "none"; // Esconde o botão após iniciar
+    }).catch(error => {
+        console.log("Autoplay bloqueado. Clique no botão para iniciar.");
+    });
 }
 
-// Opcional: tocar automaticamente ao carregar a página
-window.onload = function() {
-    const audio = document.getElementById('audioPlayer');
-    audio.currentTime = startTime;
-    audio.play().catch(error => {
-        console.log("Autoplay bloqueado pelo navegador:", error);
-    });
+// Tenta tocar automaticamente ao carregar a página
+window.onload = function () {
+    playAudio(); // Chama a função ao carregar
 };
+
+// Permite o usuário tocar manualmente
+playButton.addEventListener('click', () => {
+    playAudio();
+});
