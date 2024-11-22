@@ -1,23 +1,16 @@
-const audioPlayer = document.getElementById("audioPlayer");
-const playPauseBtn = document.getElementById("playPauseBtn");
+const startTime = 157; // Altere este valor para o tempo desejado
 
-function togglePlayPause() {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-        playPauseBtn.textContent = "Pausar";
-    } else {
-        audioPlayer.pause();
-        playPauseBtn.textContent = "Tocar";
-    }
+function playAudio() {
+    const audio = document.getElementById('audioPlayer');
+    audio.currentTime = startTime; // Define o tempo inicial
+    audio.play(); // Toca o áudio
 }
 
-// Tocar automaticamente ao carregar a página
-window.onload = function () {
-    const startTime = 158; // Tempo inicial em segundos
-    audioPlayer.currentTime = startTime;
-
-    // Tentar tocar o áudio automaticamente
-    audioPlayer.play().catch(error => {
+// Opcional: tocar automaticamente ao carregar a página
+window.onload = function() {
+    const audio = document.getElementById('audioPlayer');
+    audio.currentTime = startTime;
+    audio.play().catch(error => {
         console.log("Autoplay bloqueado pelo navegador:", error);
     });
 };
