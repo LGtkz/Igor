@@ -12,9 +12,9 @@
 <body>
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="src/img/img3.jpeg" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="src/img/img1.jpg" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="src/img/img2.jpg" alt="" srcset=""></div>
-            <div class="swiper-slide"><img src="src/img/img3.jpeg" alt="" srcset=""></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -39,10 +39,20 @@
                     </div>
                 </div>
         </div>
-    carrosel
-    Titulo
-    paragrafo com texto bonito
-    tempo juntos 1 ano e 4 dias
+        <div class="player">
+            <div class="player-content">
+                <img src="src/img/henriqueCapa.jpg" alt="Capa da Música" class="music-cover" />
+                <div class="music-info">
+                    <h2 class="music-title">Tinta de Amor - Henrique e Juliano</h2>
+                    <audio id="audioPlayer" preload="auto" src="src/musica/Henrique e Juliano -  TINTA DE AMOR, REALIDADE OU FANTASIA, DUAS VIDAS - TO BE Ao Vivo Em Brasília.mp3"></audio>
+                    <!-- <div class="buttons">
+                        <button id="playBtn" onclick="playMusic()">Tocar</button>
+                        <button id="pauseBtn" onclick="pauseMusic()">Pausar</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <script src="src/javaScript/tocaMusica.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="src/javaScript/index.js"></script>
 </body>
